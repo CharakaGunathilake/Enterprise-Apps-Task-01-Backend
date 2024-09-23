@@ -24,7 +24,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findByName(String name) {
+    public Student findByName(String name) {
         return repository.findByName(name);
     }
 }

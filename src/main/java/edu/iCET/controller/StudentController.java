@@ -24,9 +24,15 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public void addStudent(@RequestBody Student student, HttpServletRequest request){
+    public String addStudent(@RequestBody Student student, HttpServletRequest request){
         String os = request.getHeader("sec-ch-ua");
         log.info("Request recieved {}|{}",student,os);
         service.addStudent(student);
+        return "Student registered Successfully!";
+    }
+
+    @GetMapping("/findByName={name}")
+    public Student findStudent(@PathVariable String name){
+        return service.findByName(name);
     }
 }
